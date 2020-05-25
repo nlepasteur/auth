@@ -5,17 +5,21 @@
         "node": true
     },
     "extends": [
-        "airbnb-base", "prettier"
+        "airbnb-base",
+        "prettier"
     ],
-    "plugins": ["prettier"],
+    "plugins": [
+        "prettier"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 11
+        "ecmaVersion": 2018
     },
     "rules": {
+        "no-unused-vars": "warn",
         "prettier/prettier": "error"
     }
 }
