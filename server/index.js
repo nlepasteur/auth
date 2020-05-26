@@ -18,12 +18,15 @@ app.get('/', (req, res) => {
 app.use('/auth', auth);
 
 function notFound(req, res, next) {
-  res.status(404);
+  console.log('enter notFound middleware');
+  res.status(404); // peut-être intérêt de mettre en paras res alors que peut retourner res sans indication venant e la requête réside dans le faitde passer ce res lors des next() et / ou car implémentation est comme ça point
   const error = new Error(`Not found - ${req.originalUrl}`);
+  console.log('error created just before next(error) :', error);
   next(error);
 }
 
 function errorHandler(err, req, res, next) {
+  console.log('enter errorHandler middleware, error is :', err);
   res.status(res.statusCode || 500);
   res.json({
     message: err.message,
