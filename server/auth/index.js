@@ -41,8 +41,8 @@ router.post('/signup', async (req, res, next) => {
         password: hashedPassword,
       };
 
-      const insertedUser = await users.insert(newUser);
-      delete newUser.password;
+      const insertedUser = await users.insert(newUser); // semble que chaque instruction ayant recours à un package soit asynchrone
+      delete newUser.password; // /!\ très intéressant insertedUser et newUser sont même objet, référence?
       res.json(insertedUser);
 
       // res.json({ hashedPassword }); // res.json({ hashedPassword }); // retenir cette syntaxe qui revient à écrire { hashedPassword: hashedPassword }
